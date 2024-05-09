@@ -14,8 +14,12 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.17",
     "@mui/material": "^5.15.17",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.0",
+    "sort": "^0.0.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

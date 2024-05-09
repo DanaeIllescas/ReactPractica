@@ -4,24 +4,30 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: var(--primary);
-  background-color: #F4F5DB;
+  color: rgba(5, 5, 5, 0.87);
+  
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-/**a {
+  /*crear paleta de colores*/
+  --primary: #7469B6;
+  --secondary: #AD88C6;
+  --highlight: #FFE6E6;
+  --bg: #E1AFD1;
+}
+/*
+a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
 a:hover {
   color: #535bf2;
-}*/
-
+}
+*/
 body {
   margin: 0;
   display: flex;
@@ -29,8 +35,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-
-/**h1 {
+/*
+h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
@@ -65,5 +71,5 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}*/
-
+}
+*/

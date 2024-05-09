@@ -1,50 +1,50 @@
-import { useState, useEffect } from 'react';
-import Progress from './Progress.jsx';
-import './Astros.css'
+import { useState, useEffect } from "react";
+import { Typography } from "@mui/material";
+import "./astros.css";
+import CircularProgress from "@mui/material/CircularProgress";
 
 
-const DATA_URL = 'http://api.open-notify.org/astros.json'
-
-
-const Astro = ({name, craft}) => {
+function Astro(props){
+{/*uso props porque voy a usar como parametro las propiedades de lo del fetch*/}
     return (
-        <div className='astro--container'>
-            <h2 className='astro--name'>{name}</h2>
-            <p className='astro--station'>Space station: {craft}</p>
-        </div>
-    )
+        <div className="card">
+            <h2>{props.astro.name}</h2>
+            <p>{props.astro.craft}</p>
+        </div>    
+    );
 }
 
+function Astros() {
+    const [astros, setAstros] = useState();
 
-const Astros = () => {
-    const [astros, setAstros] = useState([])
+    const URL ="http://api.open-notify.org/astros.json";
 
     useEffect(() => {
-        fetchAstros();
+        async function fetchData(){
+            const response = await fetch(URL);
+            const data = await response.json();
+            setAstros(data.people); 
+            console.log(astros);
+        }
+      {/*controla cuantas veces se ejectuta pero hay que decirle cuando se detenga que es por eso que ponemos el [] */} 
+      fetchData(); 
     }, []);
+    
 
-    const fetchAstros = () => {
-        fetch(DATA_URL)
-            .then(res => res.json())
-            .then(data => setAstros(data.people))
-            .catch(err => console.error(err))
-    }
-
-    console.log(astros);
     return (
-        <>
-            <h2>Astros</h2>
-            {
-                astros.length !== 0 
-                    ? 
-                    astros.map((astro, index) => (
-                        <Astro key={index} {...astro} />
-                    ))
-                    :
-                    <Progress/>
-            }
-        </>
-    )
+    <>
+        <Typography variant="h2" className="h2">ASTROS</Typography>
+        <div className="card-container">
+            {astros ? (
+                astros.map((astro, index) => 
+                    <Astro astro={astro} key={index} />)
+                ):(
+                    <CircularProgress />
+            )}
+        </div>
+        
+    </>
+    );
 }
 
 export default Astros;
